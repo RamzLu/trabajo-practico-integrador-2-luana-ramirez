@@ -10,12 +10,11 @@ export const Navbar = ({ isAuthenticated, onLogout }) => {
         <div className="flex justify-between h-16 items-center">
           {/* Logo o nombre */}
           <Link to="/" className="text-xl font-bold tracking-wide">
-            MyApp
+            MyApp Luana
           </Link>
           <Link to="/tasks" className="hover:text-gray-200">
             Tasks
           </Link>
-          {/* Botón menú responsive */}
           <button
             className="sm:hidden focus:outline-none"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -51,66 +50,23 @@ export const Navbar = ({ isAuthenticated, onLogout }) => {
             <Link to="/register" className="hover:text-gray-200">
               Register
             </Link>
+            <Link
+              to="/home"
+              className="block py-1 hover:text-gray-200"
+              onClick={() => setMenuOpen(false)}
+            >
+              Home
+            </Link>
+            <Link
+              to="/profile"
+              className="block py-1 hover:text-gray-200"
+              onClick={() => setMenuOpen(false)}
+            >
+              Profile
+            </Link>
           </>
         </div>
       </div>
-
-      {/* Menú responsive */}
-      {menuOpen && (
-        <div className="sm:hidden bg-blue-700 px-4 pb-3 space-y-2">
-          {isAuthenticated ? (
-            <>
-              <Link
-                to="/"
-                className="block py-1 hover:text-gray-200"
-                onClick={() => setMenuOpen(false)}
-              >
-                Home
-              </Link>
-              <Link
-                to="/tasks"
-                className="block py-1 hover:text-gray-200"
-                onClick={() => setMenuOpen(false)}
-              >
-                Tasks
-              </Link>
-              <Link
-                to="/profile"
-                className="block py-1 hover:text-gray-200"
-                onClick={() => setMenuOpen(false)}
-              >
-                Profile
-              </Link>
-              <button
-                onClick={() => {
-                  onLogout();
-                  setMenuOpen(false);
-                }}
-                className="block w-full text-left py-1 text-red-300 hover:text-red-200"
-              >
-                Logout
-              </button>
-            </>
-          ) : (
-            <>
-              <Link
-                to="/login"
-                className="block py-1 hover:text-gray-200"
-                onClick={() => setMenuOpen(false)}
-              >
-                Login
-              </Link>
-              <Link
-                to="/register"
-                className="block py-1 hover:text-gray-200"
-                onClick={() => setMenuOpen(false)}
-              >
-                Register
-              </Link>
-            </>
-          )}
-        </div>
-      )}
     </nav>
   );
 };
