@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Loading } from "../components/Loading";
+import { Navbar } from "../components/Navbar";
+import { Footer } from "../components/Footer";
 
 export const Profile = () => {
   const [user, setUser] = useState(null); //estado para el usuario
@@ -50,18 +52,39 @@ export const Profile = () => {
   if (isLoading) {
     <Loading />;
   }
-  console.log(user);
   return (
-    <div>
-      <h1>Perfil de usuario</h1>
-      {user && (
-        <div>
-          <p>ID: {user.id}</p>
-          <p>Nombre: {user.name}</p>
-          <p>Apellido: {user.lastname}</p>
+    <>
+      <Navbar />
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-400 via-purple-400 to-pink-400 p-6">
+        <div className="bg-white/30 backdrop-blur-lg p-8 rounded-2xl shadow-xl w-full max-w-md text-white text-center">
+          <h1 className="text-3xl font-bold mb-6">Perfil de Usuario</h1>
+
+          {user ? (
+            <div className="space-y-4 text-lg">
+              <p>
+                <span className="font-semibold">ID:</span> {user.id}
+              </p>
+              <p>
+                <span className="font-semibold"> Nombre:</span> {user.name}
+              </p>
+              <p>
+                <span className="font-semibold"> Apellido:</span>{" "}
+                {user.lastname}
+              </p>
+            </div>
+          ) : (
+            <p className="text-white/80">Cargando información del usuario...</p>
+          )}
+
+          <button
+            onClick={handleLogout}
+            className="mt-8 w-full py-3 bg-white text-indigo-600 font-semibold rounded-lg hover:bg-indigo-50 transition duration-200"
+          >
+            Cerrar sesión
+          </button>
         </div>
-      )}
-      <button onClick={handleLogout}>Cerrar sesión</button>
-    </div>
+      </div>
+      <Footer />
+    </>
   );
 };
