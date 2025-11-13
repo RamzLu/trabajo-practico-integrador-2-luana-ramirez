@@ -1,16 +1,48 @@
-# React + Vite
+Descripción breve
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web para la gestión de tareas con autenticación de usuarios.
+Permite registrar usuarios, iniciar sesión, crear, editar, eliminar y marcar tareas como completadas o pendientes.
+Construida con React, Node.js, Express y MySQL.
 
-Currently, two official plugins are available:
+Instrucciones de instalación
+Clonar el repositorio
+git clone [https://github.com/tu-usuario/task-manager.git](https://github.com/RamzLu/trabajo-practico-integrador-2-luana-ramirez.git)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Instalar dependencias del backend
+cd servidor
+npm install
+Instalar dependencias del frontend
+cd ../frontend
+npm install
 
-## React Compiler
+Iniciar los servidores
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+Servidor:
 
-## Expanding the ESLint configuration
+npm run dev
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Frontend:
+
+npm run dev
+
+Configuración del archivo .env
+
+Crea un archivo llamado .env dentro del directorio server/ con el siguiente contenido:
+DB_NAME=tp_integrador
+DB_USER=root
+DB_PASSWORD=
+DB_HOST=localhost
+DB_DIALECT=mysql
+DB_PORT=3306
+JWT_SECRET=jwt_secret
+PORT=3000
+
+Tecnologías utilizadas
+
+Frontend: React + Vite + Tailwind CSS
+
+Backend: Node.js + Express
+
+Base de datos: MySQL
+
+Autenticación: JWT (JSON Web Token)
