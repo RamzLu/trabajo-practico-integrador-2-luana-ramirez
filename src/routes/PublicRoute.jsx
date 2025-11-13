@@ -19,7 +19,7 @@ export default function PublicRoute() {
         setIsAuthenticated(false);
       }
     } catch (error) {
-      console.log("Error de fetch");
+      // console.log("Error de fetch");
       setIsAuthenticated(false);
     } finally {
       setIsLoading(false);
