@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Loading } from "../components/Loading";
 import { Outlet, Navigate } from "react-router-dom";
 export const PrivateRoute = () => {
@@ -34,9 +34,3 @@ export const PrivateRoute = () => {
     <Navigate to="/home" />
   );
 };
-
-// if (isLoading) {
-//   return <Loading />;
-// }
-
-// isLoading ?  cargando...  : (isAuthenticated ? <Outlet /> : <Navigate to="/home"/>)
